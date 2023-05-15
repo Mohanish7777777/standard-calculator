@@ -21,105 +21,138 @@ Publish the website in the given URL.
 
 ## PROGRAM :
  ```html
+ calc.html
  <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>Slot Timetable</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Calculator</title>
 </head>
+
 <body>
-<center>
-<img src="https://i.ibb.co/hc30Wwc/WEB-LOGO-01.png" height="100" width="540">
-</center>
-<br>
-<table align="center" width="540" cellspacing="2" cellpadding="4" border="5" bgcolor="cyan">
-<caption><b>SLOT TIME TABLE - Mohanish.K (22002294)</b></caption>
-<tr align="center">
-<th bgcolor="yellow">Day/Time</th>
-<th bgcolor="yellow">Monday</th>
-<th bgcolor="yellow">Tuesday</th>
-<th bgcolor="yellow">Wednesday</th>
-<th bgcolor="yellow">Thursday</th>
-<th bgcolor="yellow">Friday</th>
-</tr>
-<tr align="center">
-<th bgcolor="yellow">8-10</th>
-<td colspan="3" align="center">FREE SLOT</td>
-<td>PHY</td>
-<td>CHE</td>
-</tr>
-<tr align="center">
-<th bgcolor="yellow">10-12</th>
-<td>GER</td>
-<td> FREE SLOT </td>
-<td>FWAD</td>
-<td>FWAD</td>
-<td>PHY</td>
-</tr>
-<tr>
-<th bgcolor="yellow">12-1</th>
-<td colspan="5" align="center">L U N C H</td>
-</tr>
-<tr align="center">
-<th bgcolor="yellow">1-3</th>
-<td colspan="2" align="center">FREE SLOT</td>
-<td>MAT</td>
-<td>MAT</td>
-<td>SS</td>
-</tr>
-<tr align="center">
-<th bgcolor="yellow">3-5</th>
-<td colspan="2" align="center">FREE SLOT</td>
-<td>GER</td>
-<td>CHE</td>
-<td>FWAD</td>
-</tr>
-</table>
-<br>
-<table align="center" cellspacing="2" cellpadding="4" border="2">
-<tr align="center">
-<th>S. No.</th>
-<th>Subject Code</th>
-<th>Subject Name</th>
-</tr>
-<tr>
-<td align="center">1.</td>
-<td align="center">19AI414</td>
-<td>Fundamentals of Web Application Development (FWAD)</td>
-</tr>
-<tr>
-<td align="center">2.</td>
-<td align="center">19EN612</td>
-<td>German Basic (GER)</td>
-</tr>
-<tr>
-<td align="center">3.</td>
-<td align="center">19PH206</td>
-<td>Physics for Information Technology (PHY)</td>
-</tr>
-<tr>
-<td align="center">4.</td>
-<td align="center">19CY205</td>
-<td>Principles of Chemistry in Engineering (CHE)</td>
-</tr>
-<tr>
-<td align="center">5.</td>
-<td align="center">19MA201</td>
-<td>Calculus and Matrix Algebra (MAT)</td>
-</tr>
-<tr>
-<td align="center">6.</td>
-<td align="center">19EY701</td>
-<td>Soft Skills (SS)</td>
-</tr>
-</table>
+    <div class="container">
+        <h1>Calculator</h1>
+
+        <div class="calculator">
+            <input type="text" name="screen" id="screen">
+            <table>
+                <tr>
+                    <td><button>(</button></td>
+                    <td><button>)</button></td>
+                    <td><button>C</button></td>
+                    <td><button>%</button></td>
+                </tr>
+                <tr>
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    <td><button>X</button></td>
+                </tr>
+                <tr>
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>
+                    <td><button>-</button></td>
+                </tr>
+                <tr>
+                    <td><button>1</button></td>
+                    <td><button>2</button></td>
+                    <td><button>3</button></td>
+                    <td><button>+</button></td>
+                </tr>
+                <tr>
+                    <td><button>0</button></td>
+                    <td><button>.</button></td>
+                    <td><button>/</button></td>
+                    <td><button>=</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </body>
+<script src="/static/js/index.js"></script>
 </html>
+```
+index.js
+```javascript
 
+let screen = document.getElementById('screen');
+buttons = document.querySelectorAll('button');
+let screenValue = '';
+for (item of buttons) {
+    item.addEventListener('click', (e) => {
+        buttonText = e.target.innerText;
+        console.log('Button text is ', buttonText);
+        if (buttonText == 'X') {
+            buttonText = '*';
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
+        else if (buttonText == 'C') {
+            screenValue = "";
+            screen.value = screenValue;
+        }
+        else if (buttonText == '=') {
+            screen.value = eval(screenValue);
+        }
+        else {
+            screenValue += buttonText;
+            screen.value = screenValue;
+        }
 
+    })
+}
+```
+style.css
+```css
+.container{
+    text-align: center;
+    margin-top:23px
+}
+
+table{
+    margin: auto;
+}
+
+input{
+    border-radius: 21px;
+    border: 5px solid #070707;
+    font-size:34px;
+    height: 65px;
+    width: 456px;
+}
+
+button{
+    border-radius: 20px;
+    font-size: 40px;
+    background: #ffe600;
+    width: 102px;
+    height: 90px;
+    margin: 6px;
+}
+
+.calculator{ 
+    border: 4px solid #030303;
+    background-color: #07defa;
+    padding: 23px;
+    border-radius: 53px;
+    display: inline-block;
+    
+}
+
+h1{
+    font-size: 28px;
+    font-family: 'Courier New', Courier, monospace;
+}
 ```
 
 ## OUTPUT:
-![image](https://github.com/Mohanish7777777/standard-calculator/assets/111619160/6640e9d8-6092-4a15-b587-b3da80b0c132)
+![image](https://github.com/Mohanish7777777/standard-calculator/assets/111619160/54d78937-1b30-4484-8683-45faa4e0ab31)
 
 
 
