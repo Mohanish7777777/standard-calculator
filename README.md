@@ -152,14 +152,8 @@ h1{
 ```
 
 ## OUTPUT:
-![calc](https://user-images.githubusercontent.com/119405070/214778207-d01b2dcf-843e-4a5a-bb74-7f48b30e2c2b.png)
-<br>
+![image](https://github.com/Mohanish7777777/standard-calculator/assets/111619160/54d78937-1b30-4484-8683-45faa4e0ab31)
 
-![calc1](https://user-images.githubusercontent.com/119405070/214778268-6162085e-dcae-4ce6-a5e0-b6039c3c7dd0.png)
-<br>
-
-![calc2](https://user-images.githubusercontent.com/119405070/214778317-9141d09f-879b-4b23-984d-39381dd47d7d.png)
-<br>
 
 
 
